@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-k+q$2c@u8-^hhxf%z*x0d3g$#gaf5l%$(p#o2sk#9vgf2qeg(9"
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -83,9 +85,7 @@ WSGI_APPLICATION = "OlympicsDB.wsgi.application"
 
 DATABASES = {
     "default": {
-        # "ENGINE": "django.db.backends.sqlite3",
         "ENGINE": "django.db.backends.postgresql",
-        # "NAME": BASE_DIR / "db.sqlite3",
         "NAME": "postgres",
         "USER": "postgres.zrlesfgogzbdeiqaosnt",
         "PASSWORD": "y402Km1yF5Olzt0P",
