@@ -49,34 +49,4 @@ def register(request):
 @permission_classes([IsAuthenticated])
 def profile(request): 
     serializer = UserSerializer(instance=request.user)
-    # serializer2 = OlympicsSerializer(OlympicsData)
     return Response(serializer.data, status=status.HTTP_200_OK)
-
-    # return Response("Estas logeado {}".format(request.user.username), status=status.HTTP_200_OK)
-    # serializer2 = OlympicsSerializer()
-
-
-
-# @api_view(['GET'])
-# @authentication_classes([TokenAuthentication])
-# @permission_classes([IsAuthenticated])
-# def olympics_data(request):
-#     serializer = OlympicsSerializer(OlympicsData) 
-#     return Response(serializer.data, status=status.HTTP_200_OK)
-    
-
-@api_view(['GET'])
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def olympics_data(request):
-    if request.method == 'GET':
-        olympic_events = OlympicsData.objects.all()  
-        serializer = OlympicsSerializer(olympic_events, many=True)  
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)  # Handle non-GET requests
-
-
-    # if serializer.is_valid():
-    #     olymicspData = request.user.OlympicsData
-    #     serializer = OlympicsSerializer(olymicspData)
-    #     return Response (serializer.data)
