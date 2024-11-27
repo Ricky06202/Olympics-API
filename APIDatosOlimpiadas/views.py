@@ -57,12 +57,12 @@ def profile(request):
 
 
 
-@api_view(['GET'])
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def olympics_data(request):
-    serializer = OlympicsSerializer(OlympicsData) 
-    return Response(serializer.data, status=status.HTTP_200_OK)
+# @api_view(['GET'])
+# @authentication_classes([TokenAuthentication])
+# @permission_classes([IsAuthenticated])
+# def olympics_data(request):
+#     serializer = OlympicsSerializer(OlympicsData) 
+#     return Response(serializer.data, status=status.HTTP_200_OK)
     
 
 @api_view(['GET'])

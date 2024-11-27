@@ -1,0 +1,30 @@
+# Poner "docker-compose up -d" para iniciarlo como contenedor 
+
+services:
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - postgres_db
+    environment:
+      - DB_HOST=postgres_db
+
+  postgres_db:
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres.zrlesfgogzbdeiqaosnt
+      - POSTGRES_PASSWORD=y402Km1yF5Olzt0P
+
+volumes:
+  postgres_data:
