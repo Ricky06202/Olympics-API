@@ -16,6 +16,9 @@ Aqui se encuentra la API y las configuraciones de Backend para la conexión con 
 </div>
 
 <br>
+Integración con Rest Framework de Django
+![Texto alternativo](https://github.com/Ricky06202/Olympics-API/blob/main/public/rest_framework.png)
+<br>
 ## Iniciar el Proyecto con Docker
 ```bash
 docker build
